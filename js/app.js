@@ -31,7 +31,7 @@ Enemy.prototype.render = function() {
 var Player = function() {
     this.sprite = 'images/char-boy.png';
     this.x = 200;
-    this.y = 400;
+    this.y = 405;
 };
 
 Player.prototype.update = function() {
@@ -44,14 +44,14 @@ Player.prototype.render = function() {
 };
 
 Player.prototype.handleInput = function(keys) {
-    if (this.y<30){
+    if (this.y<40){
         this.x = 200;
-        this.y = 400;
+        this.y = 405;
     } else {  
         if (keys === 'up' && this.y>10) {
-            this.y -= 90;
+            this.y -= 83;
         } else if (keys === 'down' && this.y<400) {
-            this.y += 90;
+            this.y += 83;
         } else if (keys === 'left' && this.x>100) {
             this.x -= 95;
         } else if (keys === 'right' && this.x<350) {
@@ -64,7 +64,7 @@ function checkCollisions(player,allEnemies){
     for (var i = 0; i < allEnemies.length; i++) {
     if (allEnemies[i].x < player.x + 50 && allEnemies[i].x + 50 > player.x && allEnemies[i].y < player.y + 50 && allEnemies[i].y + 50 > player.y) {
       player.x = 200;
-      player.y = 400;
+      player.y = 405;
     }
   }
 }
